@@ -2,21 +2,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class KeyboardListenerThread extends Thread
-{
+public class KeyboardListenerThread extends Thread {
 	boolean isQuit;
 	BufferedReader console;
 
-	public KeyboardListenerThread()
-	{
+	public KeyboardListenerThread() {
 		console = new BufferedReader(new InputStreamReader(System.in));
 		isQuit = false;
 	}
+
 	@Override
-	public void run()
-	{
-		while(!isQuit)
-		{
+	public void run() {
+		while (!isQuit) {
 			String ans = "";
 			try {
 				ans = console.readLine();
@@ -24,12 +21,12 @@ public class KeyboardListenerThread extends Thread
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	        if (ans.equals("q")) isQuit = true;
+			if (ans.equals("q"))
+				isQuit = true;
 		}
 	}
 
-	public boolean isQuit()
-	{
+	public boolean isQuit() {
 		return isQuit;
 	}
 }
